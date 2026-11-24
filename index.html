@@ -1,105 +1,109 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DostCall – Safe 1-on-1 Audio & Video Calling App in India</title>
+  <title>DostCall – Real People • Live Talk (Tamil, Malayalam, Telugu)</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
-    body { background: #090612; color: #fff; line-height: 1.5; }
-    header { position: sticky; top: 0; z-index: 99; background: rgba(9,6,18,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #262038; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; }
-    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #ff2a7a, #7c3aed); display: flex; align-items: center; justify-content: center; font-size: 19px; }
-    .logo span { color: #ff2a7a; }
-    .vip-btn { background: linear-gradient(90deg, #ff2a7a, #ff5e3a); color: #fff; padding: 11px 24px; border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(255,42,122,0.5); transition: transform 0.2s; }
-    .vip-btn:hover { transform: scale(1.04); }
-    .vip-btn-lg { background: linear-gradient(90deg, #ff2a7a, #7c3aed); color: #fff; padding: 16px 36px; border-radius: 16px; font-size: 18px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 30px rgba(255,42,122,0.55); margin: 10px 0 26px; }
-    .hero { text-align: center; padding: 38px 20px 20px; max-width: 960px; margin: auto; }
-    .badge { display: inline-block; background: #1a1429; border: 1px solid #32284a; padding: 6px 16px; border-radius: 50px; font-size: 13px; color: #00f5a0; font-weight: 700; margin-bottom: 14px; }
-    h1 { font-size: clamp(28px, 5vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 12px; }
-    h1 span { color: #ff2a7a; }
-    .sub { color: #b4b4c0; max-width: 620px; margin: 0 auto 20px; font-size: 15px; }
-    .id-box { background: #141024; border: 1.5px solid #ff2a7a; border-radius: 20px; padding: 20px; max-width: 560px; margin: 0 auto 34px; }
-    .id-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .id-code { background: #000; border: 1.5px dashed #00f5a0; color: #00f5a0; font-weight: 800; font-size: 18px; padding: 9px 18px; border-radius: 12px; }
-    .sec-title { max-width: 1160px; margin: 10px auto 18px; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .grid { max-width: 1160px; margin: 0 auto 36px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 18px; }
-    .card { background: #141024; border: 1px solid #2a2240; border-radius: 22px; overflow: hidden; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-4px); border-color: #ff2a7a; }
-    .top { height: 165px; display: flex; align-items: center; justify-content: center; position: relative; }
-    .tag-on { position: absolute; top: 10px; left: 10px; background: rgba(9,6,18,0.85); color: #00f5a0; font-size: 11px; padding: 4px 10px; border-radius: 50px; font-weight: 700; }
-    .tag-lg { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.55); font-size: 11px; padding: 4px 10px; border-radius: 50px; font-weight: 600; }
-    .av-3d { width: 108px; height: 108px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.45); overflow: hidden; background: #ffe4cc; }
-    .info { padding: 16px; }
-    .info h3 { font-size: 17px; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
-    .v-badge { font-size: 11px; background: rgba(124,58,237,0.35); color: #ddd6fe; padding: 2px 8px; border-radius: 6px; }
-    .info p { font-size: 13px; color: #b4b4c0; margin-bottom: 14px; }
-    .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .b-call { padding: 10px 6px; border-radius: 12px; text-align: center; font-size: 13px; font-weight: 800; color: #fff; text-decoration: none; display: block; }
-    .b-aud { background: #262038; border: 1px solid #3f355c; }
-    .b-vid { background: linear-gradient(90deg, #ff2a7a, #ff5e3a); }
-    .mid-cta { max-width: 1160px; margin: 10px auto 44px; padding: 26px 20px; background: linear-gradient(135deg, #1e1538, #2b1236); border: 1px solid #ff2a7a; border-radius: 22px; text-align: center; }
-    .safety { max-width: 1160px; margin: 0 auto 44px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; }
-    .s-box { background: #141024; border: 1px solid #262038; border-radius: 18px; padding: 18px; }
-    .s-box h4 { margin-bottom: 6px; font-size: 15px; color: #fff; }
-    .s-box p { font-size: 13px; color: #b4b4c0; }
-    footer { background: #05030c; border-top: 1px solid #262038; padding: 34px 20px; text-align: center; }
-    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-bottom: 16px; }
-    .links button { background: none; border: none; color: #fff; text-decoration: underline; font-size: 14px; cursor: pointer; font-weight: 700; }
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
-    .m-box { background: #141024; border: 1px solid #ff2a7a; border-radius: 18px; max-width: 600px; width: 100%; padding: 24px; text-align: left; }
-    .m-close { float: right; background: #ff2a7a; color: #fff; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-weight: 800; }
+    body { background: radial-gradient(circle at top, #280b3d 0%, #0d0518 65%); color: #fff; line-height: 1.4; }
+    header { position: sticky; top: 0; z-index: 99; background: rgba(16,6,28,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #3c1b59; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 900; color: #fff; text-decoration: none; }
+    .logo-badge { width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, #ff1e7a, #7c3aed); border: 1.5px solid #ff85b3; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 0 15px rgba(255,30,122,0.6); }
+    .logo span { color: #ff2a85; }
+    .vip-btn { background: linear-gradient(90deg, #ff1e7a, #ff5733); color: #fff; padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(255,30,122,0.55); }
+    .wrap { max-width: 1120px; margin: auto; padding: 16px; }
+    .hero-top { text-align: center; padding: 14px 10px 18px; }
+    .tagline { font-size: 14px; color: #e9d5ff; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; }
+    h1 { font-size: clamp(24px, 4.5vw, 38px); font-weight: 900; margin-bottom: 10px; }
+    h1 span { color: #ff2a85; }
+    .vip-cta { background: linear-gradient(90deg, #ff1e7a, #8b5cf6); color: #fff; padding: 14px 30px; border-radius: 50px; font-size: 16px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 25px rgba(255,30,122,0.55); margin: 8px 0 14px; }
+    .lang-box { background: rgba(24,10,42,0.9); border: 1.5px solid #4c1d95; border-radius: 22px; padding: 16px; margin-bottom: 16px; box-shadow: 0 0 24px rgba(124,58,237,0.25); }
+    .lang-title { text-align: center; font-size: 15px; font-weight: 800; margin-bottom: 12px; color: #f3e8ff; }
+    .lang-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .l-pill { border-radius: 50px; padding: 8px 18px; text-align: center; cursor: pointer; font-weight: 800; color: #fff; border: 2px solid transparent; transition: 0.2s; min-width: 105px; }
+    .l-pill small { display: block; font-size: 11px; opacity: 0.9; font-weight: 600; }
+    .l-tm { background: rgba(236,72,153,0.25); border-color: #ec4899; }
+    .l-ml { background: rgba(6,182,212,0.25); border-color: #06b6d4; }
+    .l-tl { background: rgba(34,197,94,0.25); border-color: #22c55e; }
+    .l-en { background: rgba(139,92,246,0.25); border-color: #8b5cf6; }
+    .l-hi { background: rgba(244,63,94,0.25); border-color: #f43f5e; }
+    .l-pill.active, .l-pill:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.35); }
+    .tabs { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; justify-content: center; flex-wrap: wrap; }
+    .tab { background: #1e0d33; border: 1.5px solid #4c1d95; color: #fff; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .tab.on { background: linear-gradient(90deg, #ec4899, #d946ef); border-color: #f472b6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; margin-bottom: 30px; }
+    .card { position: relative; border-radius: 22px; overflow: hidden; border: 2px solid #ec4899; background: #1d0c30; box-shadow: 0 8px 20px rgba(0,0,0,0.5); transition: 0.2s; }
+    .card:hover { transform: translateY(-4px); border-color: #00f5a0; }
+    .art { height: 220px; position: relative; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+    .st-pill { position: absolute; top: 9px; left: 9px; background: rgba(10,10,18,0.78); padding: 3px 9px; border-radius: 50px; font-size: 11px; font-weight: 800; display: flex; align-items: center; gap: 4px; }
+    .rt-pill { position: absolute; top: 9px; right: 9px; background: rgba(10,10,18,0.78); padding: 3px 8px; border-radius: 50px; font-size: 11px; font-weight: 800; color: #facc15; }
+    .lg-tag { position: absolute; top: 36px; left: 9px; background: rgba(124,58,237,0.85); padding: 2px 8px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+    .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,5,24,0.96) 18%, rgba(13,5,24,0.15) 55%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; }
+    .h-name { font-size: 16px; font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; text-transform: lowercase; }
+    .dot-g { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
+    .call-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .c-btn { border-radius: 12px; padding: 6px 4px; text-align: center; text-decoration: none; color: #fff; font-weight: 800; font-size: 11px; line-height: 1.2; display: block; }
+    .c-aud { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+    .c-vid { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+    .id-bar { background: #1a0b2e; border: 1.5px solid #ff1e7a; border-radius: 20px; padding: 18px; text-align: center; margin-bottom: 26px; }
+    .id-code { background: #090312; border: 1.5px dashed #00f5a0; color: #00f5a0; font-weight: 900; font-size: 18px; padding: 7px 16px; border-radius: 12px; display: inline-block; margin: 8px 6px; }
+    footer { background: #07020f; border-top: 1px solid #3c1b59; padding: 28px 16px; text-align: center; }
+    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 14px 0; }
+    .links button { background: none; border: none; color: #f3e8ff; text-decoration: underline; font-size: 13px; cursor: pointer; font-weight: 700; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 16px; }
+    .m-box { background: #1a0b2e; border: 1.5px solid #ff1e7a; border-radius: 18px; max-width: 560px; width: 100%; padding: 22px; text-align: left; }
+    .m-close { float: right; background: #ff1e7a; color: #fff; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: 800; }
   </style>
 </head> <body>
   <header>
     <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="logo">
-      <span class="logo-icon">D</span> Dost<span>Call</span>
+      <span class="logo-badge">D</span> Dost<span>Call</span>
     </a>
     <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn">▶ Install Now</a>
   </header>
 
-  <section class="hero">
-    <div class="badge">● 100% Made for India • 18+ Safe Audio & Video Calling</div>
-    <h1>Talk Locally, Connect Instantly on <span>DostCall</span></h1>
-    <p class="sub">Real 1-on-1 voice & video calls with verified Indian hosts. Zero personal details required, zero call recording, and instant anonymous ID login.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn-lg">▶ VIP Install Now on Google Play</a>
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="tagline">Real People • Live Talk • 100% India Privacy App</div>
+      <h1>Talk in <span>Tamil, Malayalam & Telugu</span> Instantly!</h1>
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-cta">▶ VIP Install Now on Google Play</a>
+    </div>
 
-    <div class="id-box">
-      <h3>⚡ Instant Anonymous User ID (No Phone/Email Needed)</h3>
-      <div class="id-row">
-        <span class="id-code" id="uid">DC-84920</span>
-        <button class="vip-btn" style="background:#262038;box-shadow:none;" onclick="document.getElementById('uid').innerText='DC-'+Math.floor(10000+Math.random()*90000)">🔄 New ID</button>
-        <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn">▶ Install & Call</a>
+    <div class="lang-box">
+      <div class="lang-title">🌐 Select Language (Tap to Filter Hosts)</div>
+      <div class="lang-row">
+        <button class="l-pill l-tm active" onclick="filterLang('All', this)">All<small>12 Hosts</small></button>
+        <button class="l-pill l-tm" onclick="filterLang('Tamil', this)">தமிழ்<small>Tamil</small></button>
+        <button class="l-pill l-ml" onclick="filterLang('Malayalam', this)">മലയാളം<small>Malayalam</small></button>
+        <button class="l-pill l-tl" onclick="filterLang('Telugu', this)">తెలుగు<small>Telugu</small></button>
+        <button class="l-pill l-en" onclick="filterLang('English', this)">English<small>South India</small></button>
+        <button class="l-pill l-hi" onclick="filterLang('Hindi', this)">हिंदी<small>Hindi</small></button>
       </div>
     </div>
-  </section>
 
-  <div class="sec-title">
-    <h2>🔥 16 Verified Indian Hosts Online Now</h2>
-    <span style="color:#00f5a0;font-weight:700;font-size:13px;">● Audio ₹10 • Video ₹30 • Instant Connect</span>
-  </div>
+    <div class="tabs">
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="tab on">👩 Female Online</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="tab">🔥 Popular</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="tab">🔀 Random Call</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="tab">✔ Verified Host</a>
+    </div>
 
-  <section class="grid" id="hostsGrid"></section>
+    <section class="grid" id="hostsGrid"></section>
 
-  <div style="padding: 0 20px;">
-    <div class="mid-cta">
-      <h2 style="margin-bottom:8px;">🎉 First Recharge Offer: Start Talking at Just ₹30!</h2>
-      <p style="color:#d4d4d8;font-size:14px;margin-bottom:16px;">Download DostCall now and connect with 120+ verified Indian hosts privately.</p>
-      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn-lg" style="margin:0;">▶ Install DostCall App Now</a>
+    <div class="id-bar">
+      <h3>⚡ Zero Personal Details Login • Instant System ID</h3>
+      <p style="font-size:13px;color:#d8b4fe;">No phone number, no OTP, no call recording. First recharge starts at just ₹30!</p>
+      <div>
+        <span class="id-code" id="uid">DC-84920</span>
+        <button class="vip-btn" style="background:#3b0764;" onclick="document.getElementById('uid').innerText='DC-'+Math.floor(10000+Math.random()*90000)">🔄 New ID</button>
+        <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn">▶ Install & Talk</a>
+      </div>
     </div>
   </div>
-
-  <section class="safety">
-    <div class="s-box"><h4>🔒 100% Privacy Protected</h4><p>Normal users join with an instant system ID—no phone number, email, or personal photos required.</p></div>
-    <div class="s-box"><h4>🚫 Zero Call Recording</h4><p>DostCall never records or stores live audio or video calls. Only call history logs are kept.</p></div>
-    <div class="s-box"><h4>🛡️ AI Safety Moderation</h4><p>Real-time automated moderation prevents spam and personal number sharing for your safety.</p></div>
-    <div class="s-box"><h4>🇮🇳 Exclusively for India</h4><p>Designed specifically for Indian users (18+) with fast voice and video connectivity.</p></div>
-  </section>
 
   <footer>
-    <div style="margin-bottom:20px;">
-      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn">▶ Download DostCall on Google Play</a>
-    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="vip-btn">▶ Download DostCall on Google Play</a>
     <div class="links">
       <button onclick="showP('about')">About Us</button>
       <button onclick="showP('privacy')">Privacy Policy</button>
@@ -107,77 +111,85 @@
       <button onclick="showP('refund')">Refund & Cancellation Policy</button>
       <button onclick="showP('contact')">Contact Us</button>
     </div>
-    <p style="font-size:13px;color:#b4b4c0;margin-top:8px;">© 2026 DostCall (Harish Kumar Digital) • Developed by Arbaaz. All Rights Reserved. 18+ India Only.</p>
-    <p style="font-size:13px;color:#00f5a0;font-weight:700;margin-top:4px;">Help & Support Gmail: dostcall78@gmail.com</p>
+    <p style="font-size:12px;color:#d8b4fe;">© 2026 DostCall (Harish Kumar Digital) • Developed by Arbaaz. 18+ India Only.</p>
+    <p style="font-size:12px;color:#00f5a0;font-weight:700;margin-top:4px;">Help & Support Gmail: dostcall78@gmail.com</p>
   </footer>
 
   <div class="modal" id="pm" onclick="if(event.target.id==='pm')this.style.display='none'">
     <div class="m-box">
       <button class="m-close" onclick="document.getElementById('pm').style.display='none'">Close ✕</button>
-      <div id="pc" style="line-height:1.6;font-size:14px;color:#e4e4e7;"></div>
+      <div id="pc" style="line-height:1.6;font-size:14px;color:#f3e8ff;"></div>
     </div>
   </div>
 
   <script>
     const hosts = [
-      {n:"Ananya, 23", c:"Chennai", l:"Tamil • English", b:"Friendly chats, music & daily life talks", g:"linear-gradient(135deg,#ff2a7a,#7c3aed)", s:"#ffd2b0", d:"#ff2a7a"},
-      {n:"Simran, 24", c:"Chandigarh", l:"Hindi • Punjabi", b:"Movies, travel stories & fun talks", g:"linear-gradient(135deg,#f97316,#db2777)", s:"#ffe0c4", d:"#f97316"},
-      {n:"Kavya, 22", c:"Hyderabad", l:"Telugu • Hindi", b:"Good listener, positive vibes & chill talks", g:"linear-gradient(135deg,#06b6d4,#6366f1)", s:"#f7c59f", d:"#06b6d4"},
-      {n:"Riya, 25", c:"Mumbai", l:"Hindi • English", b:"Books, late evening talks & friendly advice", g:"linear-gradient(135deg,#ec4899,#8b5cf6)", s:"#ffe0c4", d:"#8b5cf6"},
-      {n:"Pooja, 23", c:"Jaipur", l:"Hindi • Rajasthani", b:"Sweet conversations & stress-free talks", g:"linear-gradient(135deg,#e11d48,#f59e0b)", s:"#ffd2b0", d:"#e11d48"},
-      {n:"Neha, 24", c:"Delhi", l:"Hindi • English", b:"Fun banter, weekend plans & music", g:"linear-gradient(135deg,#8b5cf6,#3b82f6)", s:"#ffe0c4", d:"#3b82f6"},
-      {n:"Priya, 22", c:"Bengaluru", l:"Kannada • Tamil", b:"Coffee lover, tech life & friendly chats", g:"linear-gradient(135deg,#10b981,#059669)", s:"#f7c59f", d:"#10b981"},
-      {n:"Sneha, 25", c:"Pune", l:"Marathi • Hindi", b:"Honest talks, motivation & good vibes", g:"linear-gradient(135deg,#f43f5e,#9333ea)", s:"#ffd2b0", d:"#9333ea"},
-      {n:"Divya, 23", c:"Coimbatore", l:"Tamil • Malayalam", b:"Simple talks, songs & happy mood", g:"linear-gradient(135deg,#ec4899,#f43f5e)", s:"#f7c59f", d:"#ec4899"},
-      {n:"Aarti, 26", c:"Lucknow", l:"Hindi • Urdu", b:"Shayari, calm voice & meaningful talks", g:"linear-gradient(135deg,#6366f1,#a855f7)", s:"#ffe0c4", d:"#6366f1"},
-      {n:"Meera, 24", c:"Kochi", l:"Malayalam • English", b:"Beach vibes, movies & friendly chats", g:"linear-gradient(135deg,#0ea5e9,#2563eb)", s:"#f7c59f", d:"#0ea5e9"},
-      {n:"Tanvi, 22", c:"Ahmedabad", l:"Gujarati • Hindi", b:"Garba, foodie stories & cheerful talks", g:"linear-gradient(135deg,#f97316,#ef4444)", s:"#ffd2b0", d:"#ef4444"},
-      {n:"Nandini, 25", c:"Kolkata", l:"Bengali • Hindi", b:"Art, music & warm evening conversations", g:"linear-gradient(135deg,#d946ef,#7c3aed)", s:"#ffe0c4", d:"#d946ef"},
-      {n:"Swati, 24", c:"Indore", l:"Hindi", b:"Lighthearted jokes & everyday stories", g:"linear-gradient(135deg,#14b8a6,#0d9488)", s:"#ffd2b0", d:"#14b8a6"},
-      {n:"Shruti, 23", c:"Bhopal", l:"Hindi • English", b:"Friendly listener & positive energy", g:"linear-gradient(135deg,#f43f5e,#fb7185)", s:"#ffe0c4", d:"#f43f5e"},
-      {n:"Roshni, 25", c:"Surat", l:"Gujarati • Hindi", b:"Fun talks, travel dreams & good company", g:"linear-gradient(135deg,#8b5cf6,#ec4899)", s:"#f7c59f", d:"#8b5cf6"}
+      {n:"payal ♀", lang:"Tamil", st:"Online", rt:"5.0", bg:"linear-gradient(160deg,#7c2d12,#1e1b4b)", dress:"#0284c7", acc:"gajra"},
+      {n:"riya ♀", lang:"Tamil", st:"Online", rt:"4.9", bg:"linear-gradient(160deg,#854d0e,#311042)", dress:"#eab308", acc:"gajra"},
+      {n:"kavya ♀", lang:"Malayalam", st:"Online", rt:"5.0", bg:"linear-gradient(160deg,#881337,#1e1b4b)", dress:"#be123c", acc:"gajra"},
+      {n:"sneha ♀", lang:"Malayalam", st:"Online", rt:"4.9", bg:"linear-gradient(160deg,#78350f,#1f2937)", dress:"#ea580c", acc:"glasses"},
+      {n:"divya ♀", lang:"Telugu", st:"Online", rt:"5.0", bg:"linear-gradient(160deg,#065f46,#1e1b4b)", dress:"#10b981", acc:"gajra"},
+      {n:"ananya ♀", lang:"Telugu", st:"Online", rt:"4.9", bg:"linear-gradient(160deg,#581c87,#1e1b4b)", dress:"#ec4899", acc:"gajra"},
+      {n:"meera ♀", lang:"Tamil", st:"Online", rt:"5.0", bg:"linear-gradient(160deg,#1e3a8a,#3b0764)", dress:"#3b82f6", acc:"gajra"},
+      {n:"pooja ♀", lang:"Telugu", st:"Busy", rt:"4.8", bg:"linear-gradient(160deg,#3730a3,#111827)", dress:"#2563eb", acc:"headphones"},
+      {n:"nandini ♀", lang:"Malayalam", st:"Online", rt:"4.9", bg:"linear-gradient(160deg,#701a75,#1e1b4b)", dress:"#d946ef", acc:"gajra"},
+      {n:"keerthi ♀", lang:"Tamil", st:"Online", rt:"5.0", bg:"linear-gradient(160deg,#9a3412,#1e1b4b)", dress:"#f97316", acc:"gajra"},
+      {n:"shruti ♀", lang:"English", st:"Online", rt:"4.9", bg:"linear-gradient(160deg,#312e81,#0f172a)", dress:"#8b5cf6", acc:"glasses"},
+      {n:"neha ♀", lang:"Hindi", st:"Busy", rt:"4.8", bg:"linear-gradient(160deg,#713f12,#1e1b4b)", dress:"#f59e0b", acc:"gajra"}
     ];
 
-    const grid = document.getElementById('hostsGrid');
-    hosts.forEach((h, i) => {
-      grid.innerHTML += `
-        <div class="card">
-          <div class="top" style="background:${h.g}">
-            <span class="tag-on">● Online</span>
-            <span class="tag-lg">${h.l}</span>
-            <div class="av-3d">
-              <svg viewBox="0 0 120 120">
-                <defs><radialGradient id="f${i}" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#fff4eb"/><stop offset="100%" stop-color="${h.s}"/></radialGradient></defs>
-                <path d="M20 58 C18 14,102 14,100 58 L95 118 L25 118 Z" fill="#1b1226"/>
-                <ellipse cx="60" cy="50" rx="23" ry="26" fill="url(#f${i})"/>
-                <path d="M37 44 Q60 24 83 44 Q74 30 60 32 Q46 30 37 44 Z" fill="#1b1226"/>
-                <circle cx="60" cy="36" r="2.2" fill="#ff2a7a"/>
-                <circle cx="51" cy="50" r="3" fill="#1b1226"/><circle cx="69" cy="50" r="3" fill="#1b1226"/>
-                <circle cx="52" cy="49" r="1" fill="#fff"/><circle cx="70" cy="49" r="1" fill="#fff"/>
-                <ellipse cx="45" cy="57" rx="4" ry="2.2" fill="#ff7a9e" opacity="0.5"/>
-                <ellipse cx="75" cy="57" rx="4" ry="2.2" fill="#ff7a9e" opacity="0.5"/>
-                <path d="M53 62 Q60 68 67 62" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-                <path d="M24 120 C24 88,96 88,96 120 Z" fill="${h.d}"/>
+    function renderHosts(filter) {
+      const grid = document.getElementById('hostsGrid');
+      grid.innerHTML = '';
+      hosts.filter(h => filter === 'All' || h.lang === filter).forEach((h, i) => {
+        const isOn = h.st === 'Online';
+        const extra = h.acc === 'glasses'
+          ? `<circle cx="48" cy="64" r="9" stroke="#111" stroke-width="2.2" fill="none"/><circle cx="72" cy="64" r="9" stroke="#111" stroke-width="2.2" fill="none"/><line x1="57" y1="64" x2="63" y2="64" stroke="#111" stroke-width="2.2"/>`
+          : h.acc === 'headphones'
+          ? `<rect x="26" y="54" width="8" height="20" rx="4" fill="#facc15"/><rect x="86" y="54" width="8" height="20" rx="4" fill="#facc15"/>`
+          : `<circle cx="90" cy="62" r="5" fill="#fff"/><circle cx="92" cy="70" r="5" fill="#fef08a"/><circle cx="89" cy="78" r="5" fill="#fff"/>`;
+        grid.innerHTML += `
+          <div class="card">
+            <div class="art" style="background:${h.bg}">
+              <span class="st-pill" style="color:${isOn?'#4ade80':'#facc15'}">● ${h.st}</span>
+              <span class="rt-pill">★ ${h.rt}</span>
+              <span class="lg-tag">${h.lang}</span>
+              <svg viewBox="0 0 120 140" style="width:145px;height:175px;">
+                <path d="M22 75 C18 20,102 20,98 75 L96 140 L24 140 Z" fill="#181024"/>
+                <ellipse cx="60" cy="64" rx="25" ry="28" fill="#f7c59f"/>
+                <path d="M35 55 Q60 32 85 55 Q74 38 60 40 Q46 38 35 55 Z" fill="#181024"/>
+                <circle cx="60" cy="48" r="2.2" fill="#be123c"/>
+                <circle cx="49" cy="64" r="3.4" fill="#181024"/><circle cx="71" cy="64" r="3.4" fill="#181024"/>
+                <circle cx="50" cy="62.5" r="1.2" fill="#fff"/><circle cx="72" cy="62.5" r="1.2" fill="#fff"/>
+                <circle cx="34" cy="74" r="3" fill="#facc15"/><circle cx="86" cy="74" r="3" fill="#facc15"/>
+                <path d="M51 77 Q60 85 69 77" stroke="#be123c" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                ${extra}
+                <path d="M20 140 C22 102,98 102,100 140 Z" fill="${h.dress}"/>
               </svg>
+              <div class="overlay">
+                <div class="h-name"><span class="dot-g"></span> ${h.n}</div>
+                <div class="call-row">
+                  <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="c-btn c-aud">📞 Audio<br>₹10</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="c-btn c-vid">📹 Video<br>₹30</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="info">
-            <h3><span>${h.n}</span><span class="v-badge">✔ Verified</span></h3>
-            <p>${h.c} • ${h.b}</p>
-            <div class="btns">
-              <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="b-call b-aud">📞 Audio ₹10</a>
-              <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="b-call b-vid">📹 Video ₹30</a>
-            </div>
-          </div>
-        </div>`;
-    });
+          </div>`;
+      });
+    }
+    function filterLang(l, el) {
+      document.querySelectorAll('.l-pill').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      renderHosts(l);
+    }
+    renderHosts('All');
 
     const d = {
-      about: "<h2>About DostCall</h2><p>DostCall (Operated by Harish Kumar Digital | Developed by Arbaaz) is an India-exclusive 1-on-1 audio and video calling social platform for adults aged 18+.</p>",
-      privacy: "<h2>Privacy Policy</h2><p>Normal users generate an anonymous system ID without personal details. Verified hosts complete KYC (Name, State, Contact, Aadhaar/PAN). DostCall does NOT record live audio or video calls. Support & data deletion: dostcall78@gmail.com.</p>",
-      terms: "<h2>Terms & Conditions</h2><p>Users must be 18+ and residents of India. Sharing personal phone numbers, abuse, or nudity is strictly prohibited and monitored by AI moderation.</p>",
-      refund: "<h2>Refund & Cancellation Policy</h2><p>Wallet recharges (including ₹30 first recharge packs) are credited instantly. Failed Razorpay payments are auto-refunded within 5–7 business days. Support: dostcall78@gmail.com.</p>",
-      contact: "<h2>Contact Us</h2><p>Owner: Harish Kumar Digital | Developer: Arbaaz | App: DostCall (India Only) | Help & Support Gmail: <b>dostcall78@gmail.com</b></p>"
+      about: "<h2>About DostCall</h2><p>DostCall (Operated by Harish Kumar Digital | Developed by Arbaaz) is an India-exclusive 1-on-1 Tamil, Malayalam, Telugu, English & Hindi audio/video calling platform for 18+ adults.</p>",
+      privacy: "<h2>Privacy Policy</h2><p>Normal users connect via an instant anonymous system ID with zero personal details. Verified hosts complete Aadhaar/PAN KYC. DostCall never records live audio or video calls. Support: dostcall78@gmail.com.</p>",
+      terms: "<h2>Terms & Conditions</h2><p>For 18+ Indian residents only. Phone number sharing, abuse, or nudity is strictly prohibited and monitored by AI safety moderation.</p>",
+      refund: "<h2>Refund & Cancellation Policy</h2><p>Wallet recharges (starting at ₹30) are credited instantly. Failed Razorpay payments are auto-refunded within 5–7 business days. Support: dostcall78@gmail.com.</p>",
+      contact: "<h2>Contact Us</h2><p>Owner: Harish Kumar Digital | Developer: Arbaaz | App: DostCall (India Only) | Support Gmail: <b>dostcall78@gmail.com</b></p>"
     };
     function showP(k) { document.getElementById('pc').innerHTML = d[k]; document.getElementById('pm').style.display = 'flex'; }
   </script>
