@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DostCall – Safe 1-on-1 Audio & Video Calling App in India</title>
+  <meta name="description" content="Connect instantly on DostCall. Safe 1-on-1 audio and video calls across India with zero personal details required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090612;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --border-glass: rgba(255, 255, 255, 0.1);
+      --primary: #ff2a7a;
+      --secondary: #7c3aed;
+      --accent: #00f5a0;
+      --text-main: #ffffff;
+      --text-muted: #a1a1aa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 42, 122, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.22), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(0, 245, 160, 0.08), transparent 40%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      cursor: pointer;
+    }
+
+    /* Sticky Top Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 6, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 14px 20px;
+    }
+
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow: 0 4px 20px rgba(255, 42, 122, 0.4);
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      color: var(--primary);
+    }
+
+    .install-btn-top {
+      background: linear-gradient(90deg, #ff2a7a, #ff5e3a);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 24px rgba(255, 42, 122, 0.55);
+      animation: pulseGlow 2s infinite;
+      transition: transform 0.2s ease;
+    }
+
+    .install-btn-top:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(255, 42, 122, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(255, 42, 122, 0.9); }
+      100% { box-shadow: 0 0 15px rgba(255, 42, 122, 0.5); }
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 45px 20px 30px;
+      text-align: center;
+    }
+
+    .india-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-glass);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e4e4e7;
+      margin-bottom: 18px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ff2a7a, #ff8a00, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .btn-primary-large {
+      background: linear-gradient(135deg, #ff2a7a, #7c3aed);
+      color: #fff;
+      padding: 16px 34px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(255, 42, 122, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-primary-large:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Instant ID Generator Box */
+    .id-generator-box {
+      max-width: 560px;
+      margin: 0 auto 50px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255, 42, 122, 0.35);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .id-generator-box h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .id-generator-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .id-display-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .generated-id-pill {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      letter-spacing: 1px;
+    }
+
+    .btn-gen-id {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-gen-id:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hosts Grid Section */
+    .section-header {
+      max-width: 1140px;
+      margin: 0 auto 24px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .online-counter {
+      background: rgba(0, 245, 160, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(0, 245, 160, 0.3);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hosts-grid {
+      max-width: 1140px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .host-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .host-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(255, 42, 122, 0.22);
+    }
+
+    .avatar-banner {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grad-1 { background: linear-gradient(135deg, #ff2a7a 0%, #7c3aed 100%); }
+    .grad-2 { background: linear-gradient(135deg, #f97316 0%, #db2777 100%); }
+    .grad-3 { background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%); }
+    .grad-4 { background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); }
+    .grad-5 { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
+    .grad-6 { background: linear-gradient(135deg, #f43f5e 0%, #f59e0b 100%); }
+
+    .avatar-circle {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 3px solid rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .avatar-circle svg {
+      width: 96px;
+      height: 96px;
+    }
+
+    .status-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(9, 6, 18, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-pill {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .host-info {
+      padding: 18px;
+    }
+
+    .host-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .host-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .verified-tag {
+      font-size: 11px;
+      background: rgba(124, 58, 237, 0.25);
+      color: #c4b5fd;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .host-bio {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .call-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-call {
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-audio {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-video {
+      background: linear-gradient(90deg, #ff2a7a, #ff5e3a);
+    }
+
+    /* Safety & Features Strip */
+    .features-strip {
+      max-width: 1140px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .feature-box h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .feature-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-glass);
+      background: rgba(5, 3, 12, 0.95);
+      padding: 36px 20px;
+      text-align: center;
+      cursor: default;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-links button {
+      background: none;
+      border: none;
+      color: #d4d4d8;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .footer-links button:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Policy Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: default;
+    }
+
+    .modal-card {
+      background: #141024;
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 82vh;
+      overflow-y: auto;
+      padding: 26px;
+      color: #e4e4e7;
+      position: relative;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .modal-card h2 {
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .modal-card p, .modal-card li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #a1a1aa;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body onclick="goToPlayStore(event)">
+
+  <!-- Top Sticky Header -->
+  <header>
+    <div class="nav-container">
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="brand">
+        <div class="brand-logo">D</div>
+        <div class="brand-name">Dost<span>Call</span></div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="install-btn-top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+        Install Now
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="india-badge">
+      <span class="live-dot"></span>
+      100% Made for India • 18+ Safe Audio & Video Calling
+    </div>
+    <h1>Talk Locally, Connect Instantly on <span class="gradient-text">DostCall</span></h1>
+    <p>Make real 1-on-1 voice and video calls across India with verified hosts. Zero personal details required, zero call recording, and instant anonymous ID login.</p>
+
+    <div class="hero-cta-group">
+      <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-primary-large">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+        Install Now on Google Play
+      </a>
+    </div>
+
+    <!-- Instant System User ID Generator -->
+    <div class="id-generator-box" onclick="event.stopPropagation()">
+      <h3>⚡ Instant User ID Ready (No Phone/Email Needed)</h3>
+      <p>Your private DostCall ID is generated automatically. Use this ID to start calling inside the app:</p>
+      <div class="id-display-row">
+        <div class="generated-id-pill" id="userIdText">DC-84920</div>
+        <button class="btn-gen-id" onclick="generateNewId(event)">🔄 New ID</button>
+        <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="install-btn-top" style="animation:none;">
+          Connect Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Female Hosts Showcase -->
+  <div class="section-header">
+    <h2>🔥 Verified Hosts Online Now</h2>
+    <div class="online-counter">● 120+ Hosts Active in India</div>
+  </div>
+
+  <section class="hosts-grid">
+    <!-- Host Card 1 -->
+    <div class="host-card">
+      <div class="avatar-banner grad-1">
+        <span class="status-pill"><span class="live-dot"></span> Online</span>
+        <span class="lang-pill">Tamil • English</span>
+        <div class="avatar-circle">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="40" r="22" fill="#ffe0bd"/>
+            <path d="M22 45 C22 18, 78 18, 78 45 C78 65, 84 85, 72 90 L28 90 C16 85, 22 65, 22 45 Z" fill="#1e1b2e"/>
+            <circle cx="50" cy="42" r="19" fill="#ffd2a6"/>
+            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
+            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
+            <path d="M44 49 Q50 54 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="50" cy="34" r="1.5" fill="#e11d48"/>
+            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#ff2a7a"/>
+          </svg>
+        </div>
+      </div>
+      <div class="host-info">
+        <div class="host-title-row">
+          <span class="host-name">Ananya, 23</span>
+          <span class="verified-tag">✔ Verified Avatar</span>
+        </div>
+        <p class="host-bio">Chennai • Friendly chats, music & daily life talks</p>
+        <div class="call-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-audio">📞 Audio Call</a>
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-video">📹 Video Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Host Card 2 -->
+    <div class="host-card">
+      <div class="avatar-banner grad-2">
+        <span class="status-pill"><span class="live-dot"></span> Online</span>
+        <span class="lang-pill">Hindi • Punjabi</span>
+        <div class="avatar-circle">
+          <svg viewBox="0 0 100 100">
+            <path d="M24 42 C24 15, 76 15, 76 42 L80 88 L20 88 Z" fill="#2d1b2e"/>
+            <circle cx="50" cy="42" r="19" fill="#ffe0bd"/>
+            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
+            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
+            <path d="M44 49 Q50 55 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#f97316"/>
+          </svg>
+        </div>
+      </div>
+      <div class="host-info">
+        <div class="host-title-row">
+          <span class="host-name">Simran, 24</span>
+          <span class="verified-tag">✔ Verified Avatar</span>
+        </div>
+        <p class="host-bio">Chandigarh • Movies, travel stories & fun conversations</p>
+        <div class="call-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-audio">📞 Audio Call</a>
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-video">📹 Video Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Host Card 3 -->
+    <div class="host-card">
+      <div class="avatar-banner grad-3">
+        <span class="status-pill"><span class="live-dot"></span> Online</span>
+        <span class="lang-pill">Telugu • Hindi</span>
+        <div class="avatar-circle">
+          <svg viewBox="0 0 100 100">
+            <path d="M23 44 C23 16, 77 16, 77 44 L79 88 L21 88 Z" fill="#171726"/>
+            <circle cx="50" cy="42" r="19" fill="#f6c79c"/>
+            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
+            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
+            <path d="M44 49 Q50 54 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="50" cy="34" r="1.5" fill="#e11d48"/>
+            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#06b6d4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="host-info">
+        <div class="host-title-row">
+          <span class="host-name">Kavya, 22</span>
+          <span class="verified-tag">✔ Verified Avatar</span>
+        </div>
+        <p class="host-bio">Hyderabad • Good listener, positive vibes & chill talks</p>
+        <div class="call-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-audio">📞 Audio Call</a>
+          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-video">📹 Video Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Host Card 4 -->
+    <div class="host-card">
+      <div class="avatar-b
