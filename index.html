@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,13 +11,13 @@
   <style>
     :root {
       --bg-dark: #090612;
-      --bg-card: rgba(255, 255, 255, 0.04);
-      --border-glass: rgba(255, 255, 255, 0.1);
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --border-glass: rgba(255, 255, 255, 0.12);
       --primary: #ff2a7a;
       --secondary: #7c3aed;
       --accent: #00f5a0;
       --text-main: #ffffff;
-      --text-muted: #a1a1aa;
+      --text-muted: #b4b4c0;
     }
 
     * {
@@ -30,8 +30,8 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(255, 42, 122, 0.18), transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.22), transparent 45%),
+        radial-gradient(circle at 15% 15%, rgba(255, 42, 122, 0.2), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.24), transparent 45%),
         radial-gradient(circle at 50% 85%, rgba(0, 245, 160, 0.08), transparent 40%);
       color: var(--text-main);
       min-height: 100vh;
@@ -39,12 +39,11 @@
       cursor: pointer;
     }
 
-    /* Sticky Top Navbar */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(9, 6, 18, 0.85);
+      background: rgba(9, 6, 18, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glass);
@@ -52,7 +51,7 @@
     }
 
     .nav-container {
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -71,13 +70,14 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #ff2a7a, #7c3aed);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 20px;
-      box-shadow: 0 4px 20px rgba(255, 42, 122, 0.4);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255, 42, 122, 0.45);
     }
 
     .brand-name {
@@ -87,12 +87,12 @@
     }
 
     .brand-name span {
-      color: var(--primary);
+      color: #ff2a7a;
     }
 
     .install-btn-top {
       background: linear-gradient(90deg, #ff2a7a, #ff5e3a);
-      color: #fff;
+      color: #ffffff !important;
       border: none;
       padding: 10px 22px;
       border-radius: 50px;
@@ -102,7 +102,7 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      box-shadow: 0 0 24px rgba(255, 42, 122, 0.55);
+      box-shadow: 0 0 24px rgba(255, 42, 122, 0.6);
       animation: pulseGlow 2s infinite;
       transition: transform 0.2s ease;
     }
@@ -113,15 +113,14 @@
 
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 15px rgba(255, 42, 122, 0.5); }
-      50% { box-shadow: 0 0 30px rgba(255, 42, 122, 0.9); }
+      50% { box-shadow: 0 0 30px rgba(255, 42, 122, 0.95); }
       100% { box-shadow: 0 0 15px rgba(255, 42, 122, 0.5); }
     }
 
-    /* Hero Section */
     .hero {
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 45px 20px 30px;
+      padding: 42px 20px 26px;
       text-align: center;
     }
 
@@ -129,13 +128,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-glass);
       padding: 6px 16px;
       border-radius: 50px;
       font-size: 13px;
       font-weight: 600;
-      color: #e4e4e7;
+      color: #f4f4f5;
       margin-bottom: 18px;
     }
 
@@ -154,7 +153,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 54px);
+      font-size: clamp(32px, 5vw, 52px);
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 16px;
@@ -162,7 +161,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #ff2a7a, #ff8a00, #a855f7);
+      background: linear-gradient(90deg, #ff2a7a, #ff8a00, #c084fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -177,24 +176,23 @@
 
     .hero-cta-group {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 14px;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
     .btn-primary-large {
-      background: linear-gradient(135deg, #ff2a7a, #7c3aed);
-      color: #fff;
-      padding: 16px 34px;
+      background: linear-gradient(90deg, #ff2a7a 0%, #8b5cf6 100%);
+      color: #ffffff !important;
+      padding: 16px 36px;
       border-radius: 16px;
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 10px 30px rgba(255, 42, 122, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 32px rgba(255, 42, 122, 0.5);
       transition: transform 0.2s;
     }
 
@@ -202,17 +200,16 @@
       transform: translateY(-2px);
     }
 
-    /* Instant ID Generator Box */
     .id-generator-box {
       max-width: 560px;
-      margin: 0 auto 50px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255, 42, 122, 0.35);
+      margin: 0 auto 46px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255, 42, 122, 0.4);
       border-radius: 22px;
       padding: 22px;
       backdrop-filter: blur(12px);
       text-align: center;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
     }
 
     .id-generator-box h3 {
@@ -236,8 +233,8 @@
     }
 
     .generated-id-pill {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px dashed var(--accent);
+      background: rgba(0, 0, 0, 0.55);
+      border: 1.5px dashed var(--accent);
       color: var(--accent);
       font-weight: 800;
       font-size: 18px;
@@ -247,25 +244,19 @@
     }
 
     .btn-gen-id {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.14);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       padding: 11px 18px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 14px;
       cursor: pointer;
-      transition: background 0.2s;
     }
 
-    .btn-gen-id:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Hosts Grid Section */
     .section-header {
-      max-width: 1140px;
-      margin: 0 auto 24px;
+      max-width: 1160px;
+      margin: 0 auto 22px;
       padding: 0 20px;
       display: flex;
       align-items: center;
@@ -280,9 +271,9 @@
     }
 
     .online-counter {
-      background: rgba(0, 245, 160, 0.12);
+      background: rgba(0, 245, 160, 0.14);
       color: var(--accent);
-      border: 1px solid rgba(0, 245, 160, 0.3);
+      border: 1px solid rgba(0, 245, 160, 0.35);
       padding: 6px 14px;
       border-radius: 50px;
       font-size: 13px;
@@ -290,11 +281,11 @@
     }
 
     .hosts-grid {
-      max-width: 1140px;
-      margin: 0 auto 60px;
+      max-width: 1160px;
+      margin: 0 auto 56px;
       padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       gap: 20px;
     }
 
@@ -303,58 +294,52 @@
       border: 1px solid var(--border-glass);
       border-radius: 24px;
       overflow: hidden;
-      position: relative;
       transition: transform 0.25s ease, border-color 0.25s ease;
-      backdrop-filter: blur(10px);
     }
 
     .host-card:hover {
       transform: translateY(-6px);
-      border-color: var(--primary);
-      box-shadow: 0 12px 30px rgba(255, 42, 122, 0.22);
+      border-color: #ff2a7a;
+      box-shadow: 0 12px 30px rgba(255, 42, 122, 0.25);
     }
 
     .avatar-banner {
-      height: 190px;
+      height: 195px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: hidden;
     }
 
     .grad-1 { background: linear-gradient(135deg, #ff2a7a 0%, #7c3aed 100%); }
     .grad-2 { background: linear-gradient(135deg, #f97316 0%, #db2777 100%); }
     .grad-3 { background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%); }
     .grad-4 { background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); }
-    .grad-5 { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
-    .grad-6 { background: linear-gradient(135deg, #f43f5e 0%, #f59e0b 100%); }
 
     .avatar-circle {
-      width: 116px;
-      height: 116px;
+      width: 122px;
+      height: 122px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.18);
-      border: 3px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.16);
+      border: 3px solid rgba(255, 255, 255, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
       overflow: hidden;
     }
 
     .avatar-circle svg {
-      width: 96px;
-      height: 96px;
+      width: 118px;
+      height: 118px;
     }
 
     .status-pill {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(9, 6, 18, 0.75);
-      backdrop-filter: blur(8px);
-      padding: 5px 12px;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 6, 18, 0.8);
+      padding: 5px 11px;
       border-radius: 50px;
       font-size: 12px;
       font-weight: 700;
@@ -366,10 +351,9 @@
 
     .lang-pill {
       position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.45);
       padding: 5px 10px;
       border-radius: 50px;
       font-size: 11px;
@@ -395,8 +379,8 @@
 
     .verified-tag {
       font-size: 11px;
-      background: rgba(124, 58, 237, 0.25);
-      color: #c4b5fd;
+      background: rgba(124, 58, 237, 0.3);
+      color: #ddd6fe;
       padding: 3px 8px;
       border-radius: 6px;
       font-weight: 600;
@@ -406,6 +390,7 @@
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 16px;
+      line-height: 1.45;
     }
 
     .call-actions {
@@ -417,7 +402,6 @@
     .btn-call {
       padding: 10px;
       border-radius: 12px;
-      border: none;
       font-weight: 700;
       font-size: 13px;
       display: flex;
@@ -429,18 +413,17 @@
     }
 
     .btn-audio {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
     }
 
     .btn-video {
       background: linear-gradient(90deg, #ff2a7a, #ff5e3a);
     }
 
-    /* Safety & Features Strip */
     .features-strip {
-      max-width: 1140px;
-      margin: 0 auto 60px;
+      max-width: 1160px;
+      margin: 0 auto 56px;
       padding: 0 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -466,10 +449,9 @@
       line-height: 1.5;
     }
 
-    /* Footer */
     footer {
       border-top: 1px solid var(--border-glass);
-      background: rgba(5, 3, 12, 0.95);
+      background: rgba(5, 3, 12, 0.96);
       padding: 36px 20px;
       text-align: center;
       cursor: default;
@@ -486,7 +468,7 @@
     .footer-links button {
       background: none;
       border: none;
-      color: #d4d4d8;
+      color: #e4e4e7;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -494,7 +476,7 @@
     }
 
     .footer-links button:hover {
-      color: var(--primary);
+      color: #ff2a7a;
     }
 
     .copyright {
@@ -503,12 +485,11 @@
       line-height: 1.6;
     }
 
-    /* Policy Modal */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
+      background: rgba(0, 0, 0, 0.85);
       z-index: 2000;
       align-items: center;
       justify-content: center;
@@ -526,14 +507,11 @@
       overflow-y: auto;
       padding: 26px;
       color: #e4e4e7;
-      position: relative;
     }
 
     .modal-close {
-      position: sticky;
-      top: 0;
       float: right;
-      background: var(--primary);
+      background: #ff2a7a;
       color: #fff;
       border: none;
       padding: 6px 14px;
@@ -547,17 +525,16 @@
       color: #fff;
     }
 
-    .modal-card p, .modal-card li {
+    .modal-card p {
       font-size: 14px;
       line-height: 1.65;
-      color: #a1a1aa;
+      color: #b4b4c0;
       margin-bottom: 10px;
     }
   </style>
 </head>
-<body onclick="goToPlayStore(event)">
+<body onclick="goToPlayStore()">
 
-  <!-- Top Sticky Header -->
   <header>
     <div class="nav-container">
       <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="brand">
@@ -565,13 +542,11 @@
         <div class="brand-name">Dost<span>Call</span></div>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="install-btn-top">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
-        Install Now
+        ▶ Install Now
       </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="india-badge">
       <span class="live-dot"></span>
@@ -582,12 +557,10 @@
 
     <div class="hero-cta-group">
       <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-primary-large">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
-        Install Now on Google Play
+        ▶ Install Now on Google Play
       </a>
     </div>
 
-    <!-- Instant System User ID Generator -->
     <div class="id-generator-box" onclick="event.stopPropagation()">
       <h3>⚡ Instant User ID Ready (No Phone/Email Needed)</h3>
       <p>Your private DostCall ID is generated automatically. Use this ID to start calling inside the app:</p>
@@ -601,28 +574,34 @@
     </div>
   </section>
 
-  <!-- Verified Female Hosts Showcase -->
   <div class="section-header">
     <h2>🔥 Verified Hosts Online Now</h2>
     <div class="online-counter">● 120+ Hosts Active in India</div>
   </div>
 
   <section class="hosts-grid">
-    <!-- Host Card 1 -->
+    <!-- Host 1 -->
     <div class="host-card">
       <div class="avatar-banner grad-1">
         <span class="status-pill"><span class="live-dot"></span> Online</span>
         <span class="lang-pill">Tamil • English</span>
         <div class="avatar-circle">
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="40" r="22" fill="#ffe0bd"/>
-            <path d="M22 45 C22 18, 78 18, 78 45 C78 65, 84 85, 72 90 L28 90 C16 85, 22 65, 22 45 Z" fill="#1e1b2e"/>
-            <circle cx="50" cy="42" r="19" fill="#ffd2a6"/>
-            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
-            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
-            <path d="M44 49 Q50 54 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <circle cx="50" cy="34" r="1.5" fill="#e11d48"/>
-            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#ff2a7a"/>
+          <svg viewBox="0 0 120 120">
+            <path d="M22 55 C20 18, 100 18, 98 55 C102 82, 106 105, 92 115 L28 115 C14 105, 18 82, 22 55 Z" fill="#1b1429"/>
+            <rect x="52" y="68" width="16" height="18" rx="6" fill="#f7c19b"/>
+            <path d="M26 120 C26 88, 94 88, 94 120 Z" fill="#ff2a7a"/>
+            <ellipse cx="60" cy="48" rx="22" ry="25" fill="#ffd2b0"/>
+            <path d="M38 44 C42 26, 78 26, 82 44 C74 34, 46 34, 38 44 Z" fill="#1b1429"/>
+            <circle cx="51" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="69" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="52" cy="47" r="1" fill="#fff"/>
+            <circle cx="70" cy="47" r="1" fill="#fff"/>
+            <ellipse cx="45" cy="54" rx="4" ry="2" fill="#ff758f" opacity="0.5"/>
+            <ellipse cx="75" cy="54" rx="4" ry="2" fill="#ff758f" opacity="0.5"/>
+            <path d="M53 60 Q60 66 67 60" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <circle cx="60" cy="41" r="1.8" fill="#e11d48"/>
+            <circle cx="37" cy="54" r="2.5" fill="#fbbf24"/>
+            <circle cx="83" cy="54" r="2.5" fill="#fbbf24"/>
           </svg>
         </div>
       </div>
@@ -639,19 +618,27 @@
       </div>
     </div>
 
-    <!-- Host Card 2 -->
+    <!-- Host 2 -->
     <div class="host-card">
       <div class="avatar-banner grad-2">
         <span class="status-pill"><span class="live-dot"></span> Online</span>
         <span class="lang-pill">Hindi • Punjabi</span>
         <div class="avatar-circle">
-          <svg viewBox="0 0 100 100">
-            <path d="M24 42 C24 15, 76 15, 76 42 L80 88 L20 88 Z" fill="#2d1b2e"/>
-            <circle cx="50" cy="42" r="19" fill="#ffe0bd"/>
-            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
-            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
-            <path d="M44 49 Q50 55 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#f97316"/>
+          <svg viewBox="0 0 120 120">
+            <path d="M24 52 C24 16, 96 16, 96 52 L102 115 L18 115 Z" fill="#2d182b"/>
+            <rect x="52" y="68" width="16" height="18" rx="6" fill="#f7c19b"/>
+            <path d="M26 120 C26 88, 94 88, 94 120 Z" fill="#f97316"/>
+            <ellipse cx="60" cy="48" rx="22" ry="25" fill="#ffe0c4"/>
+            <path d="M38 45 C45 25, 80 28, 82 46 C70 33, 48 35, 38 45 Z" fill="#2d182b"/>
+            <circle cx="51" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="69" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="52" cy="47" r="1" fill="#fff"/>
+            <circle cx="70" cy="47" r="1" fill="#fff"/>
+            <ellipse cx="45" cy="54" rx="4" ry="2" fill="#fb7185" opacity="0.5"/>
+            <ellipse cx="75" cy="54" rx="4" ry="2" fill="#fb7185" opacity="0.5"/>
+            <path d="M53 60 Q60 67 67 60" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <circle cx="37" cy="54" r="2.5" fill="#fde047"/>
+            <circle cx="83" cy="54" r="2.5" fill="#fde047"/>
           </svg>
         </div>
       </div>
@@ -660,7 +647,7 @@
           <span class="host-name">Simran, 24</span>
           <span class="verified-tag">✔ Verified Avatar</span>
         </div>
-        <p class="host-bio">Chandigarh • Movies, travel stories & fun conversations</p>
+        <p class="host-bio">Chandigarh • Movies, travel stories & fun talks</p>
         <div class="call-actions">
           <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-audio">📞 Audio Call</a>
           <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-video">📹 Video Call</a>
@@ -668,20 +655,26 @@
       </div>
     </div>
 
-    <!-- Host Card 3 -->
+    <!-- Host 3 -->
     <div class="host-card">
       <div class="avatar-banner grad-3">
         <span class="status-pill"><span class="live-dot"></span> Online</span>
         <span class="lang-pill">Telugu • Hindi</span>
         <div class="avatar-circle">
-          <svg viewBox="0 0 100 100">
-            <path d="M23 44 C23 16, 77 16, 77 44 L79 88 L21 88 Z" fill="#171726"/>
-            <circle cx="50" cy="42" r="19" fill="#f6c79c"/>
-            <circle cx="43" cy="40" r="2.2" fill="#1e1b2e"/>
-            <circle cx="57" cy="40" r="2.2" fill="#1e1b2e"/>
-            <path d="M44 49 Q50 54 56 49" stroke="#e11d48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <circle cx="50" cy="34" r="1.5" fill="#e11d48"/>
-            <path d="M26 95 C26 72, 74 72, 74 95 Z" fill="#06b6d4"/>
+          <svg viewBox="0 0 120 120">
+            <path d="M23 54 C23 18, 97 18, 97 54 L100 115 L20 115 Z" fill="#161626"/>
+            <rect x="52" y="68" width="16" height="18" rx="6" fill="#ebb288"/>
+            <path d="M26 120 C26 88, 94 88, 94 120 Z" fill="#06b6d4"/>
+            <ellipse cx="60" cy="48" rx="22" ry="25" fill="#f7c59f"/>
+            <path d="M38 44 C42 26, 78 26, 82 44 C72 34, 48 34, 38 44 Z" fill="#161626"/>
+            <circle cx="51" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="69" cy="48" r="2.8" fill="#1b1429"/>
+            <circle cx="52" cy="47" r="1" fill="#fff"/>
+            <circle cx="70" cy="47" r="1" fill="#fff"/>
+            <path d="M53 60 Q60 66 67 60" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <circle cx="60" cy="41" r="1.8" fill="#e11d48"/>
+            <circle cx="37" cy="54" r="2.5" fill="#fbbf24"/>
+            <circle cx="83" cy="54" r="2.5" fill="#fbbf24"/>
           </svg>
         </div>
       </div>
@@ -692,12 +685,4 @@
         </div>
         <p class="host-bio">Hyderabad • Good listener, positive vibes & chill talks</p>
         <div class="call-actions">
-          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-audio">📞 Audio Call</a>
-          <a href="https://play.google.com/store/apps/details?id=com.dostcall.app" class="btn-call btn-video">📹 Video Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Host Card 4 -->
-    <div class="host-card">
-      <div class="avatar-b
+          <a href="https://play.google.
